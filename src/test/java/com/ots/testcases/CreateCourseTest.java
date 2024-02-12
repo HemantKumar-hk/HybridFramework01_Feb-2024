@@ -10,6 +10,6 @@ public class CreateCourseTest extends BaseClass
     @Test
 	public void createCourseAsAdmin()
 	{
-		
+		System.out.println("Hello");
 	}
 }
