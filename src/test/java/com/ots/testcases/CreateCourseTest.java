@@ -12,5 +12,6 @@ public class CreateCourseTest extends BaseClass
 	{
 		System.out.println("Hello");
 		System.out.println("Welcome");
+		System.out.println("to");
 	}
 }
