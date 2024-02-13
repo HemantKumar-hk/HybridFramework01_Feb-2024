@@ -11,5 +11,7 @@ public class CreateCourseTest extends BaseClass
 	public void createCourseAsAdmin()
 	{
 		System.out.println("Hello");
+		System.out.println("Welcome");
+		System.out.println("to");
 	}
 }
