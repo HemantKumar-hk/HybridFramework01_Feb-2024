@@ -1,5 +1,7 @@
 package com.ots.factory;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
@@ -7,12 +9,20 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.ots.dataProvider.ConfigReader;
 
 public class BrowserFactory {
 	
-public static WebDriver startBrowser(String url) {
+	public static WebDriver driver;
+	
+	public static WebDriver getDriver() 
+	{
+		return driver;
+	}
+	
+   public static WebDriver startBrowser(String url) {
 		
 		WebDriver driver=new ChromeDriver();
 		
@@ -26,40 +36,98 @@ public static WebDriver startBrowser(String url) {
 		
 	}
 	
-	public static WebDriver startBrowser(String browserName, String url) {
+	public static WebDriver startBrowser(String browserName, String url) 
+	{
 		
-		WebDriver driver=null;
-		
-		if(browserName.contains("chrome") || browserName.contains("google chrome") || browserName.contains("GC")) 
+		if(ConfigReader.getProperty("local").equalsIgnoreCase("true"))
 		{
+			System.out.println("LOG : INFO - Local Set To True - Test running on Local System");
 			
-			ChromeOptions opt=new ChromeOptions();
-			
-			if(ConfigReader.getProperty("headless").equalsIgnoreCase("true"))
+			if(browserName.contains("chrome") || browserName.contains("google chrome") || browserName.contains("GC")) 
 			{
-				System.out.println("LOG :INFO - Test will be running in headless mode");
 				
-				opt.addArguments("--headless=new");
+				ChromeOptions opt=new ChromeOptions();
+				
+				if(ConfigReader.getProperty("headless").equalsIgnoreCase("true"))
+				{
+					System.out.println("LOG :INFO - Test will be running in headless mode");
+					
+					opt.addArguments("--headless=new");
+				}
+				
+				if(ConfigReader.getProperty("acceptSSLCertificate").equalsIgnoreCase("true"))
+				{
+					opt.setAcceptInsecureCerts(true);
+					
+				}
+								
+				driver= new ChromeDriver(opt);
+				
+			}
+			else if(browserName.contains("firefox") || browserName.contains("mozilla firfox") || browserName.contains("mf")) 
+			{
+				driver=new FirefoxDriver();
+			}
+			else if(browserName.contains("edge") || browserName.contains("microsoft edge") || browserName.contains("me")) 
+			{
+				driver=new EdgeDriver();
+			}
+			else 
+			{
+				System.out.println("Sorry : We do not support" + browserName + "Please use chrome, firefox and edge for test execution");
 			}
 			
-			if(ConfigReader.getProperty("acceptSSLCertificate").equalsIgnoreCase("true"))
+		}
+		else
+		{
+			String hubURL= ConfigReader.getProperty("gridURL")+":"+ConfigReader.getProperty("gridPort")+"/wd/hub";
+			
+			System.out.println("LOG : INFO - Local Set To False - Test Running on Selenium Grid"+hubURL);
+			
+			if(browserName.contains("chrome") || browserName.contains("google chrome") || browserName.contains("GC")) 
 			{
-				opt.setAcceptInsecureCerts(true);
+				
+				ChromeOptions opt=new ChromeOptions();
+				
+				if(ConfigReader.getProperty("headless").equalsIgnoreCase("true"))
+				{
+					System.out.println("LOG :INFO - Test will be running in headless mode");
+					
+					opt.addArguments("--headless=new");
+				}
+				
+				if(ConfigReader.getProperty("acceptSSLCertificate").equalsIgnoreCase("true"))
+				{
+					opt.setAcceptInsecureCerts(true);
+					
+				}
+								
+				try 
+				{
+					driver= new RemoteWebDriver(new URL(hubURL),opt);
+				} 
+				catch (MalformedURLException e) 
+				{
+					System.out.println("Could not connect to Grid"+e.getMessage());
+				}
 				
 			}
-							
-			driver= new ChromeDriver(opt);
+			else if(browserName.contains("firefox") || browserName.contains("mozilla firfox") || browserName.contains("mf")) 
+			{
+				driver=new FirefoxDriver();
+			}
+			else if(browserName.contains("edge") || browserName.contains("microsoft edge") || browserName.contains("me")) 
+			{
+				driver=new EdgeDriver();
+			}
+			else 
+			{
+				System.out.println("Sorry : We do not support" + browserName + "Please use chrome, firefox and edge for test execution");
+			}
 			
 		}
-		else if(browserName.contains("firefox") || browserName.contains("mozilla firfox") || browserName.contains("mf")) {
-			driver=new FirefoxDriver();
-		}
-		else if(browserName.contains("edge") || browserName.contains("microsoft edge") || browserName.contains("me")) {
-			driver=new EdgeDriver();
-		}
-		else {
-			System.out.println("Please use either chrome, firefox, edge");
-		}
+		
+		
 		
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(Long.parseLong(ConfigReader.getProperty("pageLoadTimeOut"))));
 		driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(Long.parseLong(ConfigReader.getProperty("scriptTimeOut"))));

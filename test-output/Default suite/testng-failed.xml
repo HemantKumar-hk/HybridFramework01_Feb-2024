@@ -3,13 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.ots.testcases.LoginTest">
+      <class name="com.ots.testcases.SampleGrid">
         <methods>
-          <include name="loginToApplicationWithValidCredentials"/>
-          <include name="tearDown"/>
-          <include name="setup"/>
+          <include name="testMethod"/>
         </methods>
-      </class> <!-- com.ots.testcases.LoginTest -->
+      </class> <!-- com.ots.testcases.SampleGrid -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
