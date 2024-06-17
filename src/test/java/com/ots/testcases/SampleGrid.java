@@ -21,14 +21,14 @@ public class SampleGrid {
 		
 		//String hubUrl= ConfigReader.getProperty("gridURL")+":"+ConfigReader.getProperty("gridPort")+"/wd/hub";
 		
-		WebDriver driver = new RemoteWebDriver(new URL("http://13.126.120.207:4444/wd/hub"), opt);
+		WebDriver driver = new RemoteWebDriver(new URL("http://13.126.75.237:4444/wd/hub"), opt);
 		
-		Thread.sleep(100000);
+		
 		System.out.println("Opening the browser....");
 		
 		driver.get("https://freelance-learn-automation.vercel.app/login");
 		
-		Thread.sleep(60000);
+		
 		System.out.println("Getting the title....");
 		
 		System.out.println(driver.getTitle());

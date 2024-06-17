@@ -60,7 +60,9 @@ public class BrowserFactory {
 					opt.setAcceptInsecureCerts(true);
 					
 				}
-								
+				
+				//WebDriverManager.chromedriver().setup();
+				
 				driver= new ChromeDriver(opt);
 				
 			}

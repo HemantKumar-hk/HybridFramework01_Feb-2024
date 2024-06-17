@@ -1,38 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="0" skipped="1">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-03-01T01:06:47 IST" name="Default suite" finished-at="2024-03-01T01:09:49 IST" duration-ms="181645">
+  <suite started-at="2024-05-16T20:46:34 IST" name="Default suite" finished-at="2024-05-16T20:46:37 IST" duration-ms="3165">
     <groups>
     </groups>
-    <test started-at="2024-03-01T01:06:47 IST" name="Default test" finished-at="2024-03-01T01:09:49 IST" duration-ms="181645">
-      <class name="com.ots.testcases.SampleGrid">
-        <test-method signature="testMethod()[pri:0, instance:com.ots.testcases.SampleGrid@273e7444]" started-at="2024-03-01T01:06:47 IST" name="testMethod" finished-at="2024-03-01T01:09:49 IST" duration-ms="181503" status="FAIL">
-          <exception class="org.openqa.selenium.SessionNotCreatedException">
+    <test started-at="2024-05-16T20:46:34 IST" name="Default test" finished-at="2024-05-16T20:46:37 IST" duration-ms="3165">
+      <class name="com.ots.testcases.LoginTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.ots.testcases.LoginTest@3646a422]" started-at="2024-05-16T20:46:34 IST" name="setup" finished-at="2024-05-16T20:46:34 IST" duration-ms="714" status="FAIL">
+          <exception class="org.openqa.selenium.remote.NoSuchDriverException">
             <message>
-              <![CDATA[Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure. 
-Host info: host: 'DESKTOP-JOHUOE0', ip: '172.20.10.5']]>
+              <![CDATA[Unable to obtain: Capabilities {acceptInsecureCerts: true, browserName: chrome, goog:chromeOptions: {args: [], extensions: []}}, error Command failed with code: 2, executed: [--browser, chrome, --language-binding, java, --output, json]
+error: unexpected argument '--language-binding' found
+
+Usage: selenium-manager.exe <--browser <BROWSER>|--driver <DRIVER>|--grid [<GRID_VERSION>]|--driver-version <DRIVER_VERSION>|--browser-version <BROWSER_VERSION>|--browser-path <BROWSER_PATH>|--driver-mirror-url <DRIVER_MIRROR_URL>|--browser-mirror-url <BROWSER_MIRROR_URL>|--output <OUTPUT>|--os <OS>|--arch <ARCH>|--proxy <PROXY>|--timeout <TIMEOUT>|--ttl <TTL>|--cache-path <CACHE_PATH>|--clear-cache|--clear-metadata|--debug|--trace|--offline|--force-browser-download|--avoid-browser-download>
+
+For more information, try '--help'.
+]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure. 
-Host info: host: 'DESKTOP-JOHUOE0', ip: '172.20.10.5'
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:625)
-at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:241)
-at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:168)
-at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:148)
-at com.ots.testcases.SampleGrid.testMethod(SampleGrid.java:24)
+              <![CDATA[org.openqa.selenium.remote.NoSuchDriverException: Unable to obtain: Capabilities {acceptInsecureCerts: true, browserName: chrome, goog:chromeOptions: {args: [], extensions: []}}, error Command failed with code: 2, executed: [--browser, chrome, --language-binding, java, --output, json]
+error: unexpected argument '--language-binding' found
+
+Usage: selenium-manager.exe <--browser <BROWSER>|--driver <DRIVER>|--grid [<GRID_VERSION>]|--driver-version <DRIVER_VERSION>|--browser-version <BROWSER_VERSION>|--browser-path <BROWSER_PATH>|--driver-mirror-url <DRIVER_MIRROR_URL>|--browser-mirror-url <BROWSER_MIRROR_URL>|--output <OUTPUT>|--os <OS>|--arch <ARCH>|--proxy <PROXY>|--timeout <TIMEOUT>|--ttl <TTL>|--cache-path <CACHE_PATH>|--clear-cache|--clear-metadata|--debug|--trace|--offline|--force-browser-download|--avoid-browser-download>
+
+For more information, try '--help'.
+
+at org.openqa.selenium.remote.service.DriverFinder.getPath(DriverFinder.java:48)
+at org.openqa.selenium.remote.service.DriverFinder.getPath(DriverFinder.java:33)
+at org.openqa.selenium.chrome.ChromeDriver.generateExecutor(ChromeDriver.java:99)
+at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:89)
+at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:84)
+at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:73)
+at com.ots.factory.BrowserFactory.startBrowser(BrowserFactory.java:66)
+at com.ots.base.BaseClass.setup(BaseClass.java:21)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:390)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:325)
+at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:180)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:122)
 at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 at org.testng.TestRunner.privateRun(TestRunner.java:848)
 at org.testng.TestRunner.run(TestRunner.java:621)
@@ -47,36 +58,156 @@ at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
 at org.testng.TestNG.runSuites(TestNG.java:1114)
 at org.testng.TestNG.run(TestNG.java:1082)
 at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.TimeoutException: java.util.concurrent.TimeoutException
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: org.openqa.selenium.WebDriverException: Command failed with code: 2, executed: [--browser, chrome, --language-binding, java, --output, json]
+error: unexpected argument '--language-binding' found
+
+Usage: selenium-manager.exe <--browser <BROWSER>|--driver <DRIVER>|--grid [<GRID_VERSION>]|--driver-version <DRIVER_VERSION>|--browser-version <BROWSER_VERSION>|--browser-path <BROWSER_PATH>|--driver-mirror-url <DRIVER_MIRROR_URL>|--browser-mirror-url <BROWSER_MIRROR_URL>|--output <OUTPUT>|--os <OS>|--arch <ARCH>|--proxy <PROXY>|--timeout <TIMEOUT>|--ttl <TTL>|--cache-path <CACHE_PATH>|--clear-cache|--clear-metadata|--debug|--trace|--offline|--force-browser-download|--avoid-browser-download>
+
+For more information, try '--help'.
+
+at org.openqa.selenium.manager.SeleniumManager.runCommand(SeleniumManager.java:159)
+at org.openqa.selenium.manager.SeleniumManager.getDriverPath(SeleniumManager.java:303)
+at org.openqa.selenium.remote.service.DriverFinder.getPath(DriverFinder.java:45)
+... 33 more
+Caused by: org.openqa.selenium.json.JsonException: Unable to parse: error: unexpected argument '--language-binding' found
+
+Usage: selenium-manager.exe <--browser <BROWSER>|--driver <DRIVER>|--grid [<GRID_VERSION>]|--driver-version <DRIVER_VERSION>|--browser-version <BROWSER_VERSION>|--browser-path <BROWSER_PATH>|--driver-mirror-url <DRIVER_MIRROR_URL>|--browser-mirror-url <BROWSER_MIRROR_URL>|--output <OUTPUT>|--os <OS>|--arch <ARCH>|--proxy <PROXY>|--timeout <TIMEOUT>|--ttl <TTL>|--cache-path <CACHE_PATH>|--clear-cache|--clear-metadata|--debug|--trace|--offline|--force-browser-download|--avoid-browser-download>
+
+For more information, try '--help'.
+
+at org.openqa.selenium.json.Json.toType(Json.java:169)
+at org.openqa.selenium.json.Json.toType(Json.java:152)
+at org.openqa.selenium.manager.SeleniumManager.runCommand(SeleniumManager.java:144)
+... 35 more
+Caused by: org.openqa.selenium.json.JsonException: Unable to determine type from: e. Last 1 characters read: e, next 128 characters to read: rror: unexpected argument '--language-binding' found
+
+Usage: selenium-manager.exe <--browser <BROWSER>|--driver <DRIVER>|--grid 
 Build info: version: '4.15.0', revision: '1d14b5521b'
 System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.9'
-Driver info: driver.version: RemoteWebDriver
-at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:410)
-at org.openqa.selenium.remote.http.AddSeleniumUserAgent.lambda$apply$0(AddSeleniumUserAgent.java:42)
-at org.openqa.selenium.remote.http.Filter.lambda$andFinally$1(Filter.java:55)
-at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute(JdkHttpClient.java:366)
-at org.openqa.selenium.remote.tracing.TracedHttpClient.execute(TracedHttpClient.java:54)
-at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:115)
-at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:96)
-at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:68)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:163)
-at org.openqa.selenium.remote.TracedCommandExecutor.execute(TracedCommandExecutor.java:51)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:607)
-... 32 more
-Caused by: java.util.concurrent.TimeoutException
-at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
-at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
-at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:393)
-... 42 more
+Driver info: driver.version: ChromeDriver
+at org.openqa.selenium.json.JsonInput.peek(JsonInput.java:166)
+at org.openqa.selenium.json.JsonTypeCoercer.lambda$buildCoercer$6(JsonTypeCoercer.java:167)
+at org.openqa.selenium.json.JsonTypeCoercer.coerce(JsonTypeCoercer.java:146)
+at org.openqa.selenium.json.Json.toType(Json.java:206)
+at org.openqa.selenium.json.Json.toType(Json.java:167)
+... 37 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.SessionNotCreatedException -->
+          </exception> <!-- org.openqa.selenium.remote.NoSuchDriverException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testMethod -->
-      </class> <!-- com.ots.testcases.SampleGrid -->
+        </test-method> <!-- setup -->
+        <test-method signature="loginToApplicationWithValidCredentials(java.lang.String,java.lang.String)[pri:0, instance:com.ots.testcases.LoginTest@3646a422]" started-at="2024-05-16T20:46:37 IST" name="loginToApplicationWithValidCredentials" data-provider="loginCredentialsExcel" finished-at="2024-05-16T20:46:37 IST" duration-ms="0" status="SKIP">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin@email.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[admin@123]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.remote.NoSuchDriverException">
+            <message>
+              <![CDATA[Unable to obtain: Capabilities {acceptInsecureCerts: true, browserName: chrome, goog:chromeOptions: {args: [], extensions: []}}, error Command failed with code: 2, executed: [--browser, chrome, --language-binding, java, --output, json]
+error: unexpected argument '--language-binding' found
+
+Usage: selenium-manager.exe <--browser <BROWSER>|--driver <DRIVER>|--grid [<GRID_VERSION>]|--driver-version <DRIVER_VERSION>|--browser-version <BROWSER_VERSION>|--browser-path <BROWSER_PATH>|--driver-mirror-url <DRIVER_MIRROR_URL>|--browser-mirror-url <BROWSER_MIRROR_URL>|--output <OUTPUT>|--os <OS>|--arch <ARCH>|--proxy <PROXY>|--timeout <TIMEOUT>|--ttl <TTL>|--cache-path <CACHE_PATH>|--clear-cache|--clear-metadata|--debug|--trace|--offline|--force-browser-download|--avoid-browser-download>
+
+For more information, try '--help'.
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.remote.NoSuchDriverException: Unable to obtain: Capabilities {acceptInsecureCerts: true, browserName: chrome, goog:chromeOptions: {args: [], extensions: []}}, error Command failed with code: 2, executed: [--browser, chrome, --language-binding, java, --output, json]
+error: unexpected argument '--language-binding' found
+
+Usage: selenium-manager.exe <--browser <BROWSER>|--driver <DRIVER>|--grid [<GRID_VERSION>]|--driver-version <DRIVER_VERSION>|--browser-version <BROWSER_VERSION>|--browser-path <BROWSER_PATH>|--driver-mirror-url <DRIVER_MIRROR_URL>|--browser-mirror-url <BROWSER_MIRROR_URL>|--output <OUTPUT>|--os <OS>|--arch <ARCH>|--proxy <PROXY>|--timeout <TIMEOUT>|--ttl <TTL>|--cache-path <CACHE_PATH>|--clear-cache|--clear-metadata|--debug|--trace|--offline|--force-browser-download|--avoid-browser-download>
+
+For more information, try '--help'.
+
+at org.openqa.selenium.remote.service.DriverFinder.getPath(DriverFinder.java:48)
+at org.openqa.selenium.remote.service.DriverFinder.getPath(DriverFinder.java:33)
+at org.openqa.selenium.chrome.ChromeDriver.generateExecutor(ChromeDriver.java:99)
+at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:89)
+at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:84)
+at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:73)
+at com.ots.factory.BrowserFactory.startBrowser(BrowserFactory.java:66)
+at com.ots.base.BaseClass.setup(BaseClass.java:21)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:390)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:325)
+at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:180)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:122)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: org.openqa.selenium.WebDriverException: Command failed with code: 2, executed: [--browser, chrome, --language-binding, java, --output, json]
+error: unexpected argument '--language-binding' found
+
+Usage: selenium-manager.exe <--browser <BROWSER>|--driver <DRIVER>|--grid [<GRID_VERSION>]|--driver-version <DRIVER_VERSION>|--browser-version <BROWSER_VERSION>|--browser-path <BROWSER_PATH>|--driver-mirror-url <DRIVER_MIRROR_URL>|--browser-mirror-url <BROWSER_MIRROR_URL>|--output <OUTPUT>|--os <OS>|--arch <ARCH>|--proxy <PROXY>|--timeout <TIMEOUT>|--ttl <TTL>|--cache-path <CACHE_PATH>|--clear-cache|--clear-metadata|--debug|--trace|--offline|--force-browser-download|--avoid-browser-download>
+
+For more information, try '--help'.
+
+at org.openqa.selenium.manager.SeleniumManager.runCommand(SeleniumManager.java:159)
+at org.openqa.selenium.manager.SeleniumManager.getDriverPath(SeleniumManager.java:303)
+at org.openqa.selenium.remote.service.DriverFinder.getPath(DriverFinder.java:45)
+... 33 more
+Caused by: org.openqa.selenium.json.JsonException: Unable to parse: error: unexpected argument '--language-binding' found
+
+Usage: selenium-manager.exe <--browser <BROWSER>|--driver <DRIVER>|--grid [<GRID_VERSION>]|--driver-version <DRIVER_VERSION>|--browser-version <BROWSER_VERSION>|--browser-path <BROWSER_PATH>|--driver-mirror-url <DRIVER_MIRROR_URL>|--browser-mirror-url <BROWSER_MIRROR_URL>|--output <OUTPUT>|--os <OS>|--arch <ARCH>|--proxy <PROXY>|--timeout <TIMEOUT>|--ttl <TTL>|--cache-path <CACHE_PATH>|--clear-cache|--clear-metadata|--debug|--trace|--offline|--force-browser-download|--avoid-browser-download>
+
+For more information, try '--help'.
+
+at org.openqa.selenium.json.Json.toType(Json.java:169)
+at org.openqa.selenium.json.Json.toType(Json.java:152)
+at org.openqa.selenium.manager.SeleniumManager.runCommand(SeleniumManager.java:144)
+... 35 more
+Caused by: org.openqa.selenium.json.JsonException: Unable to determine type from: e. Last 1 characters read: e, next 128 characters to read: rror: unexpected argument '--language-binding' found
+
+Usage: selenium-manager.exe <--browser <BROWSER>|--driver <DRIVER>|--grid 
+Build info: version: '4.15.0', revision: '1d14b5521b'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.9'
+Driver info: driver.version: ChromeDriver
+at org.openqa.selenium.json.JsonInput.peek(JsonInput.java:166)
+at org.openqa.selenium.json.JsonTypeCoercer.lambda$buildCoercer$6(JsonTypeCoercer.java:167)
+at org.openqa.selenium.json.JsonTypeCoercer.coerce(JsonTypeCoercer.java:146)
+at org.openqa.selenium.json.Json.toType(Json.java:206)
+at org.openqa.selenium.json.Json.toType(Json.java:167)
+... 37 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.remote.NoSuchDriverException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginToApplicationWithValidCredentials -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.ots.testcases.LoginTest@3646a422]" started-at="2024-05-16T20:46:37 IST" name="tearDown" finished-at="2024-05-16T20:46:37 IST" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.ots.testcases.LoginTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

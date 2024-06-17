@@ -1,7 +1,9 @@
 package com.ots.base;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
 import com.ots.dataProvider.ConfigReader;
@@ -11,7 +13,7 @@ public class BaseClass {
 	
 	public WebDriver driver;
 	
-	@BeforeMethod
+	@BeforeClass
 	public void setup() 
 	{
 	   System.out.println("LOG : INFO : Setting up browser and application");
@@ -21,7 +23,7 @@ public class BaseClass {
 	   System.out.println("LOG : INFO : Application is up and running");
 	}
 	
-	@AfterMethod
+	@AfterClass
 	public void tearDown() 
 	{
 	  System.out.println("LOG : INFO : Closing browser");

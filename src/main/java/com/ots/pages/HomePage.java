@@ -5,6 +5,9 @@ package com.ots.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
+
+import com.ots.helper.Utility;
 
 /**
  * This class will store all the locators and methods of the Login page
@@ -21,6 +24,8 @@ public class HomePage
 	}
 	
 	private By manageOption=By.xpath("//span[normalize-space()='Manage']");
+	
+	private By manageCategories = By.xpath("//a[normalize-space()='Manage Categories']");	
 	
 	private By menuIcon=By.xpath("//img[@alt='menu']");
 	
@@ -41,6 +46,19 @@ public class HomePage
 			
 	}
     
+    public CategoryPage createCategory()
+	{
+		Actions act = new Actions(driver);
+		
+		act.moveToElement(Utility.getElement(driver, manageOption)).perform();
+		
+		Utility.getElement(driver, manageCategories).click();
+		
+		Utility.switchToChildWindow(driver);
+		
+		CategoryPage category = new CategoryPage(driver);
+		
+		return category;
+	}
     
-	
 }

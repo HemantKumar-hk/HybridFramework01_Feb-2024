@@ -5,22 +5,25 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class ExcelReader {
+public class ExcelReader 
+{
 	
-	public static Object [][] getDataFromExcel(String sheetName)
+	public static Object[][] getDataFromExcel(String sheetName)
 	{
 		XSSFWorkbook wb=null;
 		try 
 		{
 			wb = new XSSFWorkbook(new FileInputStream(new File("./TestData/SampleExcel.xlsx")));
-		} catch (FileNotFoundException e) 
+		} 
+		catch (FileNotFoundException e) 
 		{
 			System.out.println("LOG : FAIL - Could not located the excel file");
-		} catch (IOException e) 
+		} 
+		catch (IOException e) 
 		{
 			System.out.println("LOG : FAIL - Could not read the excel file");
 		}
@@ -35,28 +38,34 @@ public class ExcelReader {
 		
 		for(int i=1;i<rowCount;i++)
 		{
-			for(int j=0;j<=cellCount;j++)
+			for(int j=0;j<cellCount;j++)
 			{
-				if(sh1.getRow(i).getCell(j).getCellType().equalsIgnoreCase("String"))
+				String value="";
+				
+				CellType cell= sh1.getRow(i).getCell(j).getCellType();
+				
+				if(cell==CellType.STRING)
 				{
-					arr[i-1][j]= sh1.getRow(i).getCell(j).getStringCellValue();
+					value= sh1.getRow(i).getCell(j).getStringCellValue();
 				}
-				else if(sh1.getRow(i).getCell(j).getCellType().equalsIgnoreCase("int"))
+				else if(cell==CellType.NUMERIC)
 				{
-					arr[i-1][j]= sh1.getRow(i).getCell(j).getNumericCellValue();
+					value= String.valueOf(sh1.getRow(i).getCell(j).getNumericCellValue());
 				}
-				else if (sh1.getRow(i).getCell(j).getCellType().equalsIgnoreCase("boolean"))
+				else if (cell==CellType.BOOLEAN)
 				{
-					arr[i-1][j]= sh1.getRow(i).getCell(j).getBooleanCellValue();
+					value= String.valueOf(sh1.getRow(i).getCell(j).getBooleanCellValue());
 				}
-				else if(sh1.getRow(i).getCell(j).getCellType().equalsIgnoreCase("Null"))
+				else if(cell==CellType.BLANK)
 				{
-					arr[i-1][j]= "";
+					value= "";
 				}
+				
+				arr[i-1][j]= value;
 			}
 		}
 		
-		
+		return arr;
 		
 	}
 
